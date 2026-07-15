@@ -22,7 +22,11 @@
 
 .btn:hover {
     --btn-bg-color: linear-gradient(90deg, var(--brand-color-secondary) 0%, var(--brand-color-primary) 100%);
-    --btn-color:var(--surface-color);
+    --btn-color: var(--surface-color);
+
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    color: var(--btn-color);
 }
 
 .btn-sm {
@@ -30,20 +34,20 @@
     font-size: var(--fs-sm);
 }
 
-.btn-md{
+.btn-md {
     padding: .75rem 1.5rem;
     font-size: var(--fs-base);
 }
 
-.btn-lg{
+.btn-lg {
     padding: 1rem 2rem;
     font-size: 1.125rem;
 }
 
 .btn[aria-label] {
-position: relative;
+    position: relative;
 
-    &::before{
+    &::before {
         content: "";
         position: absolute;
         border-radius: inherit;
@@ -51,7 +55,7 @@ position: relative;
         background-color: var(--bg-color);
     }
 
-    &::after{
+    &::after {
         content: attr(aria-label);
         background: var(--btn-bg-color);
         -webkit-background-clip: text;
@@ -61,11 +65,16 @@ position: relative;
         z-index: 1;
     }
 
-
-
-
-
-
-
 }
 
+@media(width >=80em) {
+    .btn-sm {
+        padding: .75rem 1.5rem;
+        font-size: var(--fs-base);
+    }
+
+    .btn-md {
+        padding: 1rem 2rem;
+        font-size: 1.125rem;
+    }
+}
